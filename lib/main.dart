@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -113,7 +112,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      '${weatherData!['weather'][0]['description']}',
+                      '${weatherData!['weather'][0]['description'][0].toUpperCase()}${weatherData!['weather'][0]['description'].substring(1)}',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Feels Like: ${weatherData!['main']['feels_like']}',
+
                       style: const TextStyle(fontSize: 20),
                     ),
                   ],
